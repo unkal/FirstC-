@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace FirstC
 {
-    class Snake:Figure
+    class Snake : Figure
     {
-       Direction direction;
+        Direction direction;
 
-        public Snake(Point tail,int Lengt,Direction _direction)
+        public Snake(Point tail, int length, Direction _direction)
         {
             direction = _direction;
-            pList = new List<Point>(); 
-            for(int i=0;i<=Lengt;i++)
+            pList = new List<Point>();
+            for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
                 p.Move(i, direction);
@@ -41,6 +41,25 @@ namespace FirstC
             return nextPoint;
         }
 
+        internal bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
+        }
+
+        public void HandleKey(ConsoleKey key)
+        {
+            if (key == ConsoleKey.LeftArrow)        direction = Direction.LEFT;
+            if (key == ConsoleKey.RightArrow)       direction = Direction.RIGHT;
+            if (key == ConsoleKey.DownArrow)        direction = Direction.DOWN;
+            if (key == ConsoleKey.UpArrow)          direction = Direction.UP;
+        }
+
         internal bool Eat(Point food)
         {
             Point head = GetNextPoint();
@@ -52,14 +71,6 @@ namespace FirstC
             }
             else
                 return false;
-        }
-
-        public void Handlkey(ConsoleKey key)
-        {
-            if (key == ConsoleKey.LeftArrow) direction = Direction.LEFT;
-            if (key == ConsoleKey.RightArrow) direction = Direction.RIGHT;
-            if (key == ConsoleKey.DownArrow) direction = Direction.DOWN;
-            if (key == ConsoleKey.UpArrow) direction = Direction.UP;
         }
     }
 }

@@ -6,25 +6,25 @@ using System.Threading.Tasks;
 
 namespace FirstC
 {
-    class FoodCreate
+    class FoodCreator
     {
-        int mapWeigth;
-        int mapHigth;
+        int mapWidht;
+        int mapHeight;
         char sym;
 
         Random random = new Random();
 
-        public FoodCreate(int mapWeigth, int mapHigth, char sym)
+        public FoodCreator(int mapWidth, int mapHeight, char sym)
         {
-            this.mapWeigth = mapWeigth;
-            this.mapHigth = mapHigth;
+            this.mapWidht = mapWidth;
+            this.mapHeight = mapHeight;
             this.sym = sym;
         }
 
         public Point CreateFood()
         {
-            int x = random.Next(2, mapWeigth - 2);
-            int y = random.Next(2, mapHigth - 2);
+            int x = random.Next(2, mapWidht - 2);
+            int y = random.Next(2, mapHeight - 2);
             return new Point(x, y, sym);
         }
     }

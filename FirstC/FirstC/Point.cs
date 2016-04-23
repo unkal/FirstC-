@@ -15,30 +15,32 @@ namespace FirstC
         public Point()
         {
         }
-        public Point(int _x,int _y, char _sym)
+
+        public Point(int x, int y, char sym)
         {
-            x = _x;
-            y = _y;
-            sym = _sym;
+            this.x = x;
+            this.y = y;
+            this.sym = sym;
         }
+
         public Point(Point p)
         {
             x = p.x;
             y = p.y;
             sym = p.sym;
         }
+
         public void Move(int offset, Direction direction)
         {
-            if (direction == Direction.RIGHT) x = x + offset;
-            if (direction == Direction.LEFT) x = x - offset;
-            if (direction == Direction.UP) y = y - offset;
-            if (direction == Direction.DOWN) y = y + offset;
+            if (direction == Direction.RIGHT)       x = x + offset;
+            if (direction == Direction.LEFT)       x = x - offset;
+            if (direction == Direction.UP)        y = y - offset;
+            if (direction == Direction.DOWN)      y = y + offset;            
         }
 
-        public void Clear()
+        public bool IsHit(Point p)
         {
-            sym = ' ';
-            Draw();
+            return p.x == this.x && p.y == this.y;
         }
 
         public void Draw()
@@ -47,9 +49,15 @@ namespace FirstC
             Console.Write(sym);
         }
 
-        internal bool IsHit(Point p)
+        public void Clear()
         {
-            return p.x == this.x && p.y == this.y;
+            sym = ' ';
+            Draw();
+        }
+
+        public override string ToString()
+        {
+            return x + ", " + y + ", " + sym;
         }
     }
 }
