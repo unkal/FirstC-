@@ -10,13 +10,21 @@ namespace FirstC
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point(1,3,'*');
-            Point p2 = new Point(4,5,'#');
+           
+            HorizontalLine Uline = new HorizontalLine(0,78,0,'-');
+            HorizontalLine Dline = new HorizontalLine(0,78,24, '-');
+            Verticalline Lline = new Verticalline(0,24,0,'|');
+            Verticalline Rline = new Verticalline(0,24,78,'|');
+            Uline.Draw();
+            Dline.Draw();
 
-            p1.Draw();p2.Draw();
+            Lline.Draw();
+            Rline.Draw();
 
-            HorizontalLine line = new HorizontalLine(5,10,8,'-');
-            line.Draw();
+
+            Point p1 = new Point(1, 3, '*');
+
+            p1.Draw();
 
             Console.ReadLine();
         }
