@@ -22,10 +22,10 @@ namespace FirstC
             Rline.Draw();
 
 
-            Point p1 = new Point(1, 3, '*');
+            Point p = new Point(1, 3, '*');
+            Snake snake = new Snake(p,4,Direction.RIGHT);
 
-            p1.Draw();
-
+            snake.Draw();
             Console.ReadLine();
         }
     }
