@@ -8,7 +8,7 @@ namespace FirstC
 {
     class Snake:Figure
     {
-        Direction direction;
+       Direction direction;
 
         public Snake(Point tail,int Lengt,Direction _direction)
         {
@@ -39,6 +39,14 @@ namespace FirstC
             Point nextPoint = new Point(head);
             nextPoint.Move(1, direction);
             return nextPoint;
+        }
+
+        public void Handlkey(ConsoleKey key)
+        {
+            if (key == ConsoleKey.LeftArrow) direction = Direction.LEFT;
+            if (key == ConsoleKey.RightArrow) direction = Direction.RIGHT;
+            if (key == ConsoleKey.DownArrow) direction = Direction.DOWN;
+            if (key == ConsoleKey.UpArrow) direction = Direction.UP;
         }
     }
 }

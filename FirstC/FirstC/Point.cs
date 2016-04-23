@@ -31,8 +31,8 @@ namespace FirstC
         {
             if (direction == Direction.RIGHT) x = x + offset;
             if (direction == Direction.LEFT) x = x - offset;
-            if (direction == Direction.UP) y = y + offset;
-            if (direction == Direction.DOWN) y = y - offset;
+            if (direction == Direction.UP) y = y - offset;
+            if (direction == Direction.DOWN) y = y + offset;
         }
 
         public void Clear()
