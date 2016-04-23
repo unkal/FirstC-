@@ -20,6 +20,10 @@ namespace FirstC
             Lline.Draw();
             Rline.Draw();
 
+            FoodCreate foodcreator = new FoodCreate(80, 25, '$');
+            Point food = foodcreator.CreateFood();
+            food.Draw();
+
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p,4,Direction.RIGHT);
             snake.Draw();
@@ -27,6 +31,11 @@ namespace FirstC
 
             while(true)
             {
+                if (snake.Eat(food))
+                {
+                    food = foodcreator.CreateFood();
+                    food.Draw();
+                }
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
